@@ -321,7 +321,7 @@ function nextTick (cb?: Function, ctx?: Object) {
 }
 ```
 
-nextTick将回调函数异步执行，callbacks收集回调，`pending`在第一次执行nextTick的时候决定异步操作的方式`timerFunc()`
+nextTick将回调函数异步执行，callbacks收集回调
 
 **timerFunc**的目的是进行能力检测，来决定用什么方式来执行回调函数`flushCallbacks`，根据性能，优先级顺序为 **Promise->MutationObserver->setImmediate->setTimeout**
 
