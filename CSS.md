@@ -271,7 +271,13 @@ item属性：
 
 #### 画一条0.5px的线
 
+* 移动端采用meta viewport
 
+  ```js
+  <meta name="viewport" content="width=device-width, initial-scale=0.5, minimum-scale=0.5, maximum-scale=0.5"/>
+  ```
+
+* 采用transform：scaleY(0.5)缩放
 
 #### 单行文字溢出省略效果
 
@@ -296,4 +302,65 @@ item属性：
 
    * 单行：height===line-height
    * 多行：display:table-cell;vertical-align:middle;
+   
+2. 块级元素
+
+   * 父元素定宽高：定位+margin
+
+     ```js
+     <style>
+         #father {
+             width: 500px;
+             height: 300px;
+             background-color: skyblue;
+             position: relative;
+     }
+      
+         #son {
+             width: 100px;
+             height: 100px;
+             background-color: green;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             margin-left: -50px;
+             margin-top: -50px;
+     }
+     </style>
+      
+     <div id="father">
+         <div id="son">我是块级元素</div>
+     </div>
+     ```
+
+   * 父元素不定宽高：定位+transform
+
+     ```js
+     <style>
+         #father {
+             width: 500px;
+             height: 300px;
+             background-color: skyblue;
+             position: relative;
+     }
+      
+         #son {
+             background-color: green;
+             position: absolute;
+             left: 50%;
+             top: 50%;
+             transform: translateX(-50%) translateY(-50%);
+     }
+     </style>
+      
+     <div id="father">
+         <div id="son">我是块级元素</div>
+     </div>
+     ```
+
+   * flex布局：**display: flex; justify-content: center;align-items: center;**
+
+     
+
+   
 
